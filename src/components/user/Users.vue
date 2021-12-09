@@ -331,7 +331,6 @@ export default {
         if (!valid) return this.$message.error('请填写完整信息！')
         // 发起添加用户的网络请求
         const { data: res } = await this.$http.post('users', this.addForm)
-        console.log(res)
         if (res.meta.status !== 201) {
           return this.$message.error('添加用户失败！')
         }
@@ -403,7 +402,6 @@ export default {
 
       // 在展示对话框之前，获取所有角色列表
       const { data: res } = await this.$http.get('roles')
-      console.log(res)
       if (res.meta.status !== 200) {
         return this.$message.error('获取角色列表失败！')
       }
@@ -419,7 +417,6 @@ export default {
       const { data: res } = await this.$http.put(`users/${this.userInfo.id}/role`,
         { rid: this.selectedRoleId }
       )
-      console.log(res)
       if (res.meta.status !== 200) {
         return this.$message.error('更新角色失败！')
       }
